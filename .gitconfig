@@ -1,3 +1,5 @@
+[core]
+  excludesfile = $HOME/.gitignore_global
 [user]
   name = Max Schoening
   email = max@max.dev
