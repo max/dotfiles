@@ -90,7 +90,10 @@ null_ls.setup({
 			})
 		end
 	end,
+	-- Sources listed here: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 	sources = {
+		null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 	},
@@ -99,10 +102,3 @@ null_ls.setup({
 vim.diagnostic.config({
 	virtual_text = true,
 })
-
--- vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
--- 	pattern = {'*.go'},
--- 	callback = function()
--- 		vim.lsp.buf.formatting_sync()
--- 	end,
--- })
