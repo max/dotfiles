@@ -1,0 +1,14 @@
+{{ $name := promptString "Name" -}}
+{{ $email := promptString "Email" -}}
+{{ $gpgkeyid := promptString "GPG Key ID" -}}
+
+[data.user]
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
+
+[data.gpg]
+{{- if $gpgkeyid }}
+  keyid = {{ $gpgkeyid | quote }}
+{{ else }}
+  keyid = false
+{{ end -}}
