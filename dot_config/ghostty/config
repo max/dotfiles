@@ -15,6 +15,3 @@ window-padding-y = 10
 keybind = global:ctrl+alt+super+t=toggle_quick_terminal
 keybind = alt+left=unbind
 keybind = alt+right=unbind
-
-# Startup
-initial-command = /opt/homebrew/bin/fish -c "zellij ls | grep main && zellij attach main
