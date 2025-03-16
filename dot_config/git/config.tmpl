@@ -1,0 +1,39 @@
+[alias]
+	aa = add --all
+	cm = commit
+	co = checkout
+	df = diff
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	pb = push --set-upstream origin HEAD
+	pl = ! fish -c 'git pull origin (current_branch)'
+	ps = push
+	st = status
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only
+[push]
+	default = current
+[remote]
+	pushDefault = origin
+[user]
+	name = {{ .user.name }}
+	email = {{ .user.email}}{{ if .gpg.keyid }}
+	signingkey = {{ .gpg.keyid }}
+	{{- end }}
+
+{{- if (eq .chezmoi.os "darwin") }}
+[credential]
+    helper = osxkeychain
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{- end }}
