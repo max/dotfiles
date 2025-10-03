@@ -5,7 +5,7 @@ font-variation = wght=500
 font-size = 14
 
 # Theme configuration
-theme = GruvboxDark
+theme = Gruvbox Dark Hard
 
 # Window configuration
 window-padding-x = 10 
