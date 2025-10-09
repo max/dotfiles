@@ -1,3 +1,8 @@
+---
+auto_approve_tools:
+  - Bash(git:*)
+---
+
 # Claude Command: Commit
 
 Quick git commit with minimal ceremony.
