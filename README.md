@@ -10,7 +10,7 @@ This repository contains configuration files for my development workflow, featur
 - **Ghostty** terminal with automatic Zellij multiplexing
 - **Git** with GPG commit signing via 1Password
 
-All configurations use the **Gruvbox Dark Hard** color scheme for visual consistency.
+All configurations use the **Gruvbox** color scheme with **automatic light/dark mode switching** based on system appearance.
 
 ## Prerequisites
 
@@ -28,6 +28,9 @@ These tools are configured but need to be installed separately:
 ```bash
 brew install fish neovim git bat btop atuin zoxide ghostty
 brew install --cask 1password
+
+# For automatic dark mode switching (macOS)
+brew install cormacrelf/tap/dark-notify
 ```
 
 ## Quick Start
@@ -67,7 +70,7 @@ chezmoi update
 
 - **nvim** ([neovim.io](https://neovim.io))
   - **LazyVim** distribution with sensible defaults
-  - **Gruvbox Hard** colorscheme
+  - **Gruvbox Hard** colorscheme with automatic light/dark switching
   - Custom keymap: `kj` in insert mode → `<Esc>`
   - Plugins configured in `lua/plugins/`
 
@@ -76,11 +79,11 @@ chezmoi update
 - **ghostty** ([ghostty.org](https://ghostty.org))
   - **Berkeley Mono Variable** font
   - Auto-launches Zellij session "main"
-  - Gruvbox Dark Hard theme
+  - Automatic light/dark theme switching
 
 - **zellij** ([zellij.dev](https://zellij.dev))
   - Compact layout
-  - Gruvbox Dark theme
+  - Automatic light/dark theme switching
 
 ### Version Control
 
@@ -93,6 +96,41 @@ chezmoi update
 
 - **bat**: Syntax-highlighted `cat` replacement
 - **btop**: Modern system monitor
+
+## Automatic Dark Mode
+
+This setup includes automatic theme switching across **Ghostty**, **Neovim**, and **Zellij** based on macOS system appearance.
+
+### How It Works
+
+- **Ghostty**: Native support for light/dark theme switching
+- **Neovim**: Uses the `dark-notify` plugin to watch system appearance
+- **Zellij**: Automated via `dark-notify` and a background service
+
+### Setup (macOS only)
+
+After running `chezmoi apply`, load the launch agent:
+
+```bash
+launchctl load ~/Library/LaunchAgents/local.dark-notify-zellij.plist
+```
+
+To verify it's running:
+
+```bash
+launchctl list | grep dark-notify
+```
+
+### Manual Theme Switching
+
+If you prefer manual control or need to test:
+
+```bash
+~/.local/bin/toggle-zellij-theme.sh light
+~/.local/bin/toggle-zellij-theme.sh dark
+```
+
+Ghostty and Neovim will automatically follow system appearance without manual intervention.
 
 ## Customization
 

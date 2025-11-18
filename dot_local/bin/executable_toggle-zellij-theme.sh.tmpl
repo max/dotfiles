@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e -u -o pipefail
+
+ZELLIJ_CONFIG_PATH="{{ .chezmoi.homeDir }}/.config/zellij/config.kdl"
+ZELLIJ_THEME_LIGHT="gruvbox-light"
+ZELLIJ_THEME_DARK="gruvbox-dark"
+
+switch_zellij_theme() {
+  local theme=$1
+  if [[ $theme == "light" ]]; then
+    sed -i '' -E "s/^theme .*/theme \"$ZELLIJ_THEME_LIGHT\"/" "$ZELLIJ_CONFIG_PATH"
+  elif [[ $theme == "dark" ]]; then
+    sed -i '' -E "s/^theme .*/theme \"$ZELLIJ_THEME_DARK\"/" "$ZELLIJ_CONFIG_PATH"
+  else
+    echo "Error: Invalid theme '$theme'. Expected 'light' or 'dark'." >&2
+    exit 1
+  fi
+}
+
+if [[ $# -eq 0 ]]; then
+  echo "Error: Missing theme argument." >&2
+  exit 1
+fi
+
+switch_zellij_theme "$1"
