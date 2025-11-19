@@ -107,20 +107,6 @@ This setup includes automatic theme switching across **Ghostty**, **Neovim**, an
 - **Neovim**: Uses the `dark-notify` plugin to watch system appearance
 - **Zellij**: Automated via `dark-notify` and a background service
 
-### Setup (macOS only)
-
-After running `chezmoi apply`, load the launch agent:
-
-```bash
-launchctl load ~/Library/LaunchAgents/local.dark-notify-zellij.plist
-```
-
-To verify it's running:
-
-```bash
-launchctl list | grep dark-notify
-```
-
 ### Manual Theme Switching
 
 If you prefer manual control or need to test:
