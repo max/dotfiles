@@ -1,0 +1,36 @@
+# Taps
+tap "cormacrelf/tap"
+
+# CLI tools
+brew "atuin"
+brew "bat"
+brew "btop"
+brew "bun"
+brew "chezmoi"
+brew "codex"
+brew "dbmate"
+brew "difftastic"
+brew "fish"
+brew "gh"
+brew "git"
+brew "jj"
+brew "lazydocker"
+brew "lazygit"
+brew "neovim"
+brew "terraform"
+brew "tree"
+brew "yt-dlp"
+brew "zellij"
+brew "zoxide"
+
+# Dark mode switching
+brew "cormacrelf/tap/dark-notify"
+
+# Casks
+cask "1password"
+cask "calibre"
+cask "claude-code"
+cask "cursor"
+cask "docker"
+cask "ghostty"
+cask "raycast"

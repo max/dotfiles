@@ -1,0 +1,12 @@
+#!/bin/bash
+# {{ include "Library/LaunchAgents/local.dark-notify-zellij.plist.tmpl" | sha256sum }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+PLIST="$HOME/Library/LaunchAgents/local.dark-notify-zellij.plist"
+
+if [ -f "$PLIST" ]; then
+    launchctl unload "$PLIST" 2>/dev/null || true
+    launchctl load "$PLIST"
+    echo "Loaded dark-notify-zellij launch agent"
+fi
+{{- end }}

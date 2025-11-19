@@ -5,7 +5,8 @@ font-variation = wght=500
 font-size = 14
 
 # Theme configuration
-theme = Gruvbox Dark Hard
+# Automatically switches between light and dark themes based on system appearance
+theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
 
 # Window configuration
 window-padding-x = 10 
