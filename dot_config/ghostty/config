@@ -3,14 +3,15 @@ font-family = "Berkeley Mono Variable"
 font-variation = wdth=90
 font-variation = wght=500
 font-size = 14
+adjust-cell-height = 10
 
 # Theme configuration
 # Automatically switches between light and dark themes based on system appearance
 theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
 
 # Window configuration
-window-padding-x = 10 
-window-padding-y = 10 
+window-padding-x = 12
+window-padding-y = 12 
 
 # Keybindings
 keybind = global:ctrl+alt+super+t=toggle_quick_terminal
