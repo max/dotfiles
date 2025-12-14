@@ -73,11 +73,19 @@ themes {
             emphasis_3 177 98 134
         }
         frame_selected {
-            base 152 151 26
+            base 168 153 132
             background 0
-            emphasis_0 214 93 14
-            emphasis_1 104 157 106
-            emphasis_2 177 98 134
+            emphasis_0 146 131 116
+            emphasis_1 124 111 100
+            emphasis_2 102 92 84
+            emphasis_3 0
+        }
+        frame_unselected {
+            base 146 131 116
+            background 0
+            emphasis_0 124 111 100
+            emphasis_1 102 92 84
+            emphasis_2 80 73 69
             emphasis_3 0
         }
         frame_highlight {
@@ -85,7 +93,7 @@ themes {
             background 0
             emphasis_0 177 98 134
             emphasis_1 214 93 14
-            emphasis_2 214 93 14
+            emphasis_2 168 153 132
             emphasis_3 214 93 14
         }
         exit_code_success {
