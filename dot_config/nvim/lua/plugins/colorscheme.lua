@@ -1,17 +1,17 @@
 return {
-  -- Configure Tokyo Night
+  -- add gruvbox
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     opts = {
-      style = "night", -- storm, night, moon, or day
+      contrast = "hard", -- can be "hard", "soft" or empty string
     },
   },
 
-  -- Configure LazyVim to load Tokyo Night
+  -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
     },
   },
 }
