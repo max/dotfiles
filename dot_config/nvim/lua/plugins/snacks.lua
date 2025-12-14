@@ -14,8 +14,8 @@ return {
       -- Set up snacks with options
       require("snacks").setup(opts)
 
-      -- Use a more subtle gray for indent guides (works well with Gruvbox)
-      vim.api.nvim_set_hl(0, "SnacksIndentScopeSubtle", { fg = "#3c3836" })
+      -- Use a more subtle gray for indent guides (works well with Tokyo Night)
+      vim.api.nvim_set_hl(0, "SnacksIndentScopeSubtle", { fg = "#3b4261" })
     end,
   },
 }

@@ -6,7 +6,7 @@ font-size = 14
 
 # Theme configuration
 # Automatically switches between light and dark themes based on system appearance
-theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
+theme = light:TokyoNight Day,dark:TokyoNight Night
 
 # Window configuration
 window-padding-x = 10 
