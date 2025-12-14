@@ -271,7 +271,7 @@ load_plugins {
 web_client {
     font "monospace"
 }
- 
+
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:
 //   - true
@@ -281,7 +281,7 @@ web_client {
  
 // Choose the theme that is specified in the themes section.
 // Default: default
-// 
+//
 theme "gruvbox-dark"
  
 // Choose the base input mode of zellij.
@@ -310,8 +310,8 @@ default_layout "compact"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)
-// 
-// theme_dir "/tmp"
+//
+theme_dir "{{ .chezmoi.homeDir }}/.config/zellij/themes"
  
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
