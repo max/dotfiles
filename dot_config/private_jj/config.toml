@@ -1,0 +1,8 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Max Schoening"
+email = "max@max.dev"
+
+[ui]
+default-command = "log"
