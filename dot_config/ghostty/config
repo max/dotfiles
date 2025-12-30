@@ -12,6 +12,9 @@ theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
 window-padding-x = 10
 window-padding-y = 10
 
+# Shell integration
+shell-integration-features = ssh-terminfo
+
 # Keybindings
 keybind = global:ctrl+alt+super+t=toggle_quick_terminal
 keybind = alt+left=unbind
