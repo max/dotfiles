@@ -2,13 +2,11 @@
 tap "cormacrelf/tap"
 
 # CLI tools
-brew "1password-cli"
 brew "atuin"
 brew "bat"
 brew "btop"
 brew "bun"
 brew "chezmoi"
-brew "codex"
 brew "dbmate"
 brew "difftastic"
 brew "direnv"
@@ -32,6 +30,8 @@ brew "cormacrelf/tap/dark-notify"
 
 # Casks
 cask "1password"
+cask "1password-cli"
+cask "codex"
 cask "calibre"
 cask "claude-code"
 cask "cursor"
