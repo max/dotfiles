@@ -2,6 +2,7 @@
 tap "cormacrelf/tap"
 
 # CLI tools
+brew "1password-cli"
 brew "atuin"
 brew "bat"
 brew "btop"
