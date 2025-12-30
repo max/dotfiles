@@ -9,8 +9,8 @@ font-size = 14
 theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
 
 # Window configuration
-window-padding-x = 10 
-window-padding-y = 10 
+window-padding-x = 10
+window-padding-y = 10
 
 # Keybindings
 keybind = global:ctrl+alt+super+t=toggle_quick_terminal
