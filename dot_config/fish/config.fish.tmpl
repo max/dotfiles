@@ -6,9 +6,15 @@ set -gx VISUAL nvim
 fish_add_path $HOME/.bun/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/bin
+
+{{ if eq .chezmoi.os "darwin" -}}
 fish_add_path /opt/homebrew/bin
+{{ else if eq .chezmoi.os "linux" -}}
+fish_add_path /home/linuxbrew/.linuxbrew/bin
+{{ end -}}
 
 if status is-interactive
+    mise activate fish | source
     atuin init fish | source
     zoxide init fish | source
 end
