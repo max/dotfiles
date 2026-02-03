@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# committer - Safe git commit helper
+# Usage: committer "commit message" file1 file2 ...
+# Prevents accidental staging of entire repo, validates files exist.
+
+set -euo pipefail
+
+FORCE=0
+if [[ "${1:-}" == "--force" ]]; then
+    FORCE=1
+    shift
+fi
+
+if [[ $# -lt 2 ]]; then
+    echo "Usage: committer [--force] \"message\" file1 [file2 ...]" >&2
+    exit 1
+fi
+
+MSG="$1"
+shift
+
+if [[ -z "$MSG" ]]; then
+    echo "Error: commit message cannot be empty" >&2
+    exit 1
+fi
+
+# Check for dangerous patterns
+for f in "$@"; do
+    if [[ "$f" == "." || "$f" == "./" ]]; then
+        echo "Error: \".\" is not allowed; list specific paths instead" >&2
+        exit 1
+    fi
+done
+
+# Validate files exist or are tracked (allows staging deletions)
+for f in "$@"; do
+    if [[ ! -e "$f" ]] && ! git ls-files --error-unmatch "$f" &>/dev/null; then
+        echo "Error: file not found and not tracked: $f" >&2
+        exit 1
+    fi
+done
+
+# Clear staging area
+git reset HEAD --quiet 2>/dev/null || true
+
+# Stage specified files
+git add -- "$@"
+
+# Check if there's anything to commit
+if git diff --cached --quiet; then
+    echo "Nothing to commit (no changes in specified files)" >&2
+    exit 1
+fi
+
+# Attempt commit
+do_commit() {
+    git commit -m "$MSG" 2>&1
+}
+
+output=$(do_commit) && rc=0 || rc=$?
+
+if [[ $rc -ne 0 ]]; then
+    # Check for lock file error
+    if echo "$output" | grep -q "Unable to create.*index.lock"; then
+        if [[ $FORCE -eq 1 ]]; then
+            lockfile=$(echo "$output" | awk -F"'" '/index\.lock/{print $2}')
+            if [[ -n "$lockfile" && -f "$lockfile" ]]; then
+                echo "Removing stale lock file: $lockfile" >&2
+                rm -f "$lockfile"
+                # Retry
+                git add -- "$@"
+                git commit -m "$MSG"
+                rc=$?
+            fi
+        else
+            echo "Lock file exists. Use --force to remove it." >&2
+            exit 1
+        fi
+    else
+        echo "$output" >&2
+        exit $rc
+    fi
+fi
+
+echo "Committed: $MSG (${#@} file(s))"

@@ -12,6 +12,7 @@ fish_add_path $HOME/go/bin
 fish_add_path /opt/homebrew/bin
 {{ else if eq .chezmoi.os "linux" -}}
 fish_add_path /home/linuxbrew/.linuxbrew/bin
+set -gx XDG_RUNTIME_DIR /run/user/(id -u)
 {{ end -}}
 
 if status is-interactive
