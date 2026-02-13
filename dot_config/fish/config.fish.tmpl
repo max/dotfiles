@@ -22,3 +22,14 @@ if status is-interactive
 end
 
 direnv hook fish | source
+
+# Load local-only fish functions/config that are intentionally not tracked in chezmoi.
+if test -d $HOME/.config/fish/local_functions
+    set -g fish_function_path $HOME/.config/fish/local_functions $fish_function_path
+end
+
+if test -d $HOME/.config/fish/local.d
+    for file in $HOME/.config/fish/local.d/*.fish
+        test -f $file; and source $file
+    end
+end
