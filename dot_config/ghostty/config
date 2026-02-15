@@ -13,7 +13,8 @@ window-padding-x = 10
 window-padding-y = 10
 
 # Shell integration
-shell-integration-features = ssh-terminfo
+# Use TERM fallback over SSH instead of copying terminfo entries to remote hosts.
+shell-integration-features = ssh-env
 
 # Keybindings
 keybind = global:ctrl+alt+super+t=toggle_quick_terminal
