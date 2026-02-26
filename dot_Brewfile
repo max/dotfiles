@@ -1,11 +1,12 @@
 # Taps
 tap "cormacrelf/tap"
+tap "oven-sh/bun"
+tap "hashicorp/tap"
 
 # CLI tools
 brew "atuin"
 brew "bat"
 brew "btop"
-brew "bun"
 brew "chezmoi"
 brew "dbmate"
 brew "difftastic"
@@ -17,24 +18,28 @@ brew "git"
 brew "jj"
 brew "lazydocker"
 brew "lazygit"
+brew "mise"
 brew "mosh"
 brew "neovim"
 brew "ripgrep"
-brew "terraform"
 brew "tree"
 brew "yt-dlp"
 brew "zellij"
 brew "zoxide"
 
-# Dark mode switching
+# Tapped formulae (fully qualified for brew bundle reliability)
+brew "oven-sh/bun/bun"
+brew "hashicorp/tap/terraform"
+
+# Dark mode switching (tapped)
 brew "cormacrelf/tap/dark-notify"
 
 # Casks
 cask "1password"
 cask "1password-cli"
-cask "codex"
 cask "calibre"
 cask "claude-code"
+cask "codex"
 cask "cursor"
 cask "docker-desktop"
 cask "ghostty"
