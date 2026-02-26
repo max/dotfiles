@@ -2,6 +2,12 @@
 {{ $email := promptString "Email" -}}
 {{ $gpgkeyid := promptString "GPG Key ID" -}}
 
+encryption = "age"
+
+[age]
+  identity = "~/.config/chezmoi/key.txt"
+  recipient = "age17wy086u98qw096dzd5m04c4af705qy9d5866kqvfpaar0egu3vyqtjl2d3"
+
 [data.user]
   name = {{ $name | quote }}
   email = {{ $email | quote }}

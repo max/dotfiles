@@ -4,6 +4,7 @@ tap "oven-sh/bun"
 tap "hashicorp/tap"
 
 # CLI tools
+brew "age"
 brew "atuin"
 brew "bat"
 brew "btop"
@@ -43,4 +44,5 @@ cask "codex"
 cask "cursor"
 cask "docker-desktop"
 cask "ghostty"
+cask "handy"
 cask "raycast"
