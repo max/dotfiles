@@ -19,6 +19,7 @@ Chezmoi uses special prefixes to map source files to their target locations:
 ## Essential Commands
 
 ### Testing Changes
+
 ```bash
 # Preview what would change (always run before apply)
 chezmoi diff
@@ -28,6 +29,7 @@ chezmoi cat ~/.config/git/config
 ```
 
 ### Applying Changes
+
 ```bash
 # Apply all changes
 chezmoi apply
@@ -37,6 +39,7 @@ chezmoi apply ~/.config/fish/config.fish
 ```
 
 ### Adding New Dotfiles
+
 ```bash
 # Add an existing file to chezmoi
 chezmoi add ~/.config/newapp/config
@@ -46,6 +49,7 @@ chezmoi edit ~/.config/fish/config.fish
 ```
 
 ### Git Operations
+
 ```bash
 # Git commands run in source directory
 chezmoi git status
@@ -87,6 +91,7 @@ chezmoi git push
 ### Template System
 
 `.chezmoi.toml.tmpl` prompts for:
+
 - `user.name` / `user.email`: Used in git config
 - `gpg.keyid`: Used for commit signing (optional)
 
@@ -97,21 +102,25 @@ OS-specific blocks use `{{ if (eq .chezmoi.os "darwin") }}` for macOS-specific c
 All software should be installed via the **Brewfile** (`dot_Brewfile` → `~/.Brewfile`), not with ad-hoc `brew install` commands. This ensures the Brewfile remains the single source of truth for installed packages.
 
 **Workflow for adding software:**
+
 1. Add the formula/cask/mas entry to `dot_Brewfile` in chezmoi
 2. `chezmoi apply` to sync the Brewfile to `~/.Brewfile`
 3. `brew bundle --global` to install from `~/.Brewfile`
 
 **Workflow for removing software:**
+
 1. Remove the entry from `dot_Brewfile`
 2. `chezmoi apply`
 3. `brew bundle cleanup --global --force` to uninstall anything not in the Brewfile
 
 **Brewfile entry types:**
+
 - `brew "name"` — CLI formulae
 - `cask "name"` — GUI apps via Homebrew Cask
 - `mas "Name", id: 123456` — Mac App Store apps (requires `mas` CLI)
 
 **Tool choices:**
+
 - **Homebrew (Brewfile)**: Default for all CLI tools and GUI apps. The Brewfile is the single source of truth — never use ad-hoc `brew install` or `brew install --cask` commands.
 - **mas**: Mac App Store apps, declared in the Brewfile via `mas` entries
 - **mise**: Used exclusively for programming language runtimes/versions (Node, Python, Go, etc.)
