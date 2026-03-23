@@ -1,7 +1,7 @@
 # Taps
 tap "cormacrelf/tap"
-tap "oven-sh/bun"
 tap "hashicorp/tap"
+tap "oven-sh/bun"
 
 # CLI tools
 brew "age"
@@ -33,8 +33,8 @@ brew "zellij"
 brew "zoxide"
 
 # Tapped formulae (fully qualified for brew bundle reliability)
-brew "oven-sh/bun/bun"
 brew "hashicorp/tap/terraform"
+brew "oven-sh/bun/bun"
 
 # Dark mode switching (tapped)
 brew "cormacrelf/tap/dark-notify"
@@ -48,6 +48,6 @@ cask "codex"
 cask "cursor"
 cask "docker-desktop"
 cask "ghostty"
-cask "handy"
 cask "hammerspoon"
+cask "handy"
 cask "raycast"
