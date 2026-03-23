@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/claude-code) when working with code in this repository.
+This file provides guidance for coding agents working with code in this repository.
 
 ## Repository Overview
 
@@ -115,7 +115,3 @@ All software should be installed via the **Brewfile** (`dot_Brewfile` → `~/.Br
 - **Homebrew (Brewfile)**: Default for all CLI tools and GUI apps. The Brewfile is the single source of truth — never use ad-hoc `brew install` or `brew install --cask` commands.
 - **mas**: Mac App Store apps, declared in the Brewfile via `mas` entries
 - **mise**: Used exclusively for programming language runtimes/versions (Node, Python, Go, etc.)
-
-## Custom Claude Command
-
-`/commit` - Quick git commit with minimal ceremony (see `dot_claude/commands/commit.md`)
