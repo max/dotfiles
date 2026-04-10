@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file provides guidance for coding agents working with code in this repository.
+This file provides guidance to coding agents working with code in this repository. `CLAUDE.md` is kept as a symlink alias to this file for tool compatibility.
 
 ## Repository Overview
 
