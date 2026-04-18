@@ -6,7 +6,9 @@ This file provides guidance for coding agents working with code in this reposito
 
 This is a **chezmoi-managed dotfiles repository**. Chezmoi manages configuration files across multiple machines securely using a source directory (`~/.local/share/chezmoi`) that is separate from the target location (`~` by default).
 
-**Critical**: Never directly edit files in `~/.config` or other target locations. Always edit files in this repository and use `chezmoi apply` to sync changes.
+**Critical**: Never directly edit files in `~/.config` or other target locations. Always edit files in this repository and use `chezmoi apply` to sync changes for materialized dotfiles.
+
+Keyboard firmware sources are an exception to the materialization model: they live under `keyboards/` in this repository as versioned source files, and they are not meant to be applied into `~/.config`.
 
 ## Chezmoi Naming Conventions
 
@@ -60,6 +62,11 @@ chezmoi git push
 
 ## Repository Structure
 
+This repository contains two kinds of content:
+
+- Chezmoi-managed dotfiles that materialize into the home directory via `dot_*` paths
+- Versioned source assets that should remain in-repo only, such as keyboard firmware under `keyboards/`
+
 ### Configuration Applications
 
 - **nvim/**: LazyVim-based Neovim setup
@@ -87,6 +94,18 @@ chezmoi git push
   - Theme: gruvbox-dark
 
 - **bat/**, **btop/**: Additional CLI tools
+
+### Keyboard Firmware
+
+- `keyboards/`: Keyboard firmware source of truth; these files are tracked in the repo but are not deployed by chezmoi
+  - `keyboards/qmk/`: QMK-based boards and layouts
+  - `keyboards/zmk/`: ZMK-based boards and layouts
+
+When working with keyboard firmware:
+
+- Do not place firmware source under `dot_config/`
+- Do not expect files under `keyboards/` to materialize in `~/.config`
+- Treat generated artifacts (`.bin`, `.uf2`, build logs, etc.) as non-canonical unless explicitly requested
 
 ### Template System
 
