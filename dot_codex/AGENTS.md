@@ -4,13 +4,13 @@ Guidance for Codex agents working from `~`.
 
 ## Home Directory
 
-Keep the home directory tidy. Do not create new top-level folders unless the user asks for them or there is an existing convention documented in `~/docs`.
+Keep the home directory tidy. Do not create new top-level folders unless the user asks for them or there is an existing convention documented in `~/Developer/agent-scripts`.
 
 ## Developer Workspace
 
 Before creating, moving, or organizing developer projects, read:
 
-- `~/docs/DEVELOPER_FOLDER_GUIDE.md`
+- `~/Developer/agent-scripts/DEVELOPER_FOLDER_GUIDE.md`
 
 Use that guide as the source of truth for the `~/Developer` layout.
 
