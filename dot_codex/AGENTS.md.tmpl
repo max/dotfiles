@@ -1,0 +1,30 @@
+{{- $agentScriptsPath := joinPath .chezmoi.homeDir .paths.developerPath "agent-scripts" -}}
+{{- $developerGuidePath := joinPath $agentScriptsPath "DEVELOPER_FOLDER_GUIDE.md" -}}
+# AGENTS.md
+
+Guidance for Codex agents working from `~`.
+
+## Home Directory
+
+Keep the home directory tidy. Do not create new top-level folders unless the user asks for them or there is an existing convention documented in `{{ $agentScriptsPath }}`.
+
+## Developer Workspace
+
+Before creating, moving, or organizing developer projects, read:
+
+- `{{ $developerGuidePath }}`
+
+Use that guide as the source of truth for the `~/Developer` layout.
+
+## Dotfiles
+
+Dotfiles and machine configuration are managed by chezmoi.
+
+For changes to files under `~/.config`, shell config, editor config, Brewfile, or other managed dotfiles:
+
+1. Edit the chezmoi source in `~/.local/share/chezmoi`.
+2. Follow `~/.local/share/chezmoi/AGENTS.md` while working inside that repository.
+3. Preview with `chezmoi diff`.
+4. Apply with `chezmoi apply` when appropriate.
+
+Do not edit managed target files directly unless the user explicitly asks for a one-off local change.
