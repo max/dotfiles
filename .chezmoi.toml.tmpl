@@ -1,6 +1,6 @@
-{{ $name := promptString "Name" -}}
-{{ $email := promptString "Email" -}}
-{{ $gpgkeyid := promptString "GPG Key ID" -}}
+{{ $name := promptStringOnce . "user.name" "Name" -}}
+{{ $email := promptStringOnce . "user.email" "Email" -}}
+{{ $gpgkeyid := promptStringOnce . "gpg.keyid" "GPG Key ID" -}}
 
 encryption = "age"
 
