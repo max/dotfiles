@@ -4,11 +4,13 @@ Personal dotfiles managed by [chezmoi](https://chezmoi.io) for a consistent deve
 
 ## Overview
 
-This repository contains configuration files for my development workflow, featuring:
+This repository contains configuration files and related source assets for my development workflow, featuring:
 - **Fish shell** with intelligent history and directory navigation
 - **Neovim** with a fully-configured LazyVim setup
 - **Ghostty** terminal with automatic Zellij multiplexing
 - **Git** with GPG commit signing via 1Password
+- **QMK** source for my ZSA Voyager keyboard layout
+- **ZMK** source for my Corne-ish Zen keyboard layout
 
 All configurations use the **Gruvbox** color scheme with **automatic light/dark mode switching** based on system appearance.
 
@@ -97,6 +99,16 @@ chezmoi update
 - **bat**: Syntax-highlighted `cat` replacement
 - **btop**: Modern system monitor
 
+### Keyboard
+
+- **ZSA Voyager**
+  - QMK layout source is tracked in [`keyboards/qmk/voyager/max`](./keyboards/qmk/voyager/max)
+  - Source export came from Oryx and excludes generated firmware binaries
+
+- **Corne-ish Zen**
+  - ZMK config is tracked in [`keyboards/zmk/corneish-zen`](./keyboards/zmk/corneish-zen)
+  - Source came from [`max/zmk-config-zen-2`](https://github.com/max/zmk-config-zen-2) and excludes generated firmware artifacts
+
 ## Automatic Dark Mode
 
 This setup includes automatic theme switching across **Ghostty**, **Neovim**, and **Zellij** based on macOS system appearance.
@@ -176,6 +188,9 @@ Example OS-specific configuration:
 │   ├── ghostty/
 │   ├── zellij/
 │   └── git/
+├── keyboards/                   # Keyboard firmware source of truth; not materialized by chezmoi
+│   ├── qmk/
+│   └── zmk/
 └── README.md
 ```
 
