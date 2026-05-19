@@ -1,0 +1,27 @@
+# skhd starter config
+#
+# Uses cmd+alt to avoid conflicts with terminal apps like Zellij that often
+# use alt-based bindings.
+#
+# Requires yabai for the window-management commands below.
+
+# Focus windows
+cmd + alt - h : yabai -m window --focus west
+cmd + alt - j : yabai -m window --focus south
+cmd + alt - k : yabai -m window --focus north
+cmd + alt - l : yabai -m window --focus east
+
+# Swap windows
+shift + cmd + alt - h : yabai -m window --swap west
+shift + cmd + alt - j : yabai -m window --swap south
+shift + cmd + alt - k : yabai -m window --swap north
+shift + cmd + alt - l : yabai -m window --swap east
+
+# Balance the current space
+cmd + alt - 0 : yabai -m space --balance
+
+# Toggle fullscreen zoom for the focused window
+cmd + alt - f : yabai -m window --toggle zoom-fullscreen
+
+# Toggle floating window (overlaps tiled windows, draggable/resizable)
+shift + cmd + alt - f : yabai -m window --toggle float
